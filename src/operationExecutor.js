@@ -30,7 +30,12 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    return null /* variable with result */;
+    let ret = {};
+    ret.obj1 = Object.assign({}, arg.obj1);
+
+    ret.obj1.firstName = "Nikolay";
+    ret.obj1.relatives[0].firstName = "Как видно, массив просто так не копируется";
+    return {arg, ret} /* variable with result */;
   }
 
   /**
@@ -43,9 +48,10 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    var ret = {...{}, ...arg.obj1, ...arg.obj2};
-    ret.a = 42;
-    ret.b = 12;
+    let ret = {};
+    ret.obj1 = {...{}, ...arg.obj1, ...arg.obj2};
+    ret.obj1.a = 42;
+    ret.obj1.b = 12;
     return {arg, ret} /* variable with result */;
   }
 
