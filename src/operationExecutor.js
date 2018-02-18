@@ -43,7 +43,10 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    return null /* variable with result */;
+    var ret = {...{}, ...arg.obj1, ...arg.obj2};
+    ret.a = 42;
+    ret.b = 12;
+    return {arg, ret} /* variable with result */;
   }
 
   /**
@@ -56,7 +59,15 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    return null /* variable with result */;
+    arg.obj1.relatives.map(x => {
+      if (x.lastName === "Ivanova") {
+        x.gender = "female";
+      } else {
+        x.gender = "male";
+      }
+    });    
+
+    return arg /* variable with result */;
   }
 
   /**
@@ -69,7 +80,13 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    return null /* variable with result */;
+    let ret = [];
+    arg.obj1.relatives.filter((x) => {
+      return x.gender === "female";
+    }).forEach((x) => {
+      ret.push(`Hello, ${x.firstName}!`);
+    });
+    return ret /* variable with result */;
   }
 }
 
