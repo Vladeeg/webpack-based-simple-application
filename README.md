@@ -36,13 +36,13 @@ $ node -v
 with SSH:
 
 ```sh
-$ git clone git@github.com:michailRemmele/webpack-based-simple-application.git
+$ git clone git@github.com:Vladeeg/webpack-based-simple-application.git
 ```
 
 or with HTTPS:
 
 ```sh
-$ git clone https://github.com/michailRemmele/webpack-based-simple-application.git
+$ git clone https://github.com/Vladeeg/webpack-based-simple-application.git
 ```
 
 #### 4. Go to project's folder:
