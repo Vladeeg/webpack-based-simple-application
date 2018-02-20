@@ -49,7 +49,7 @@ class OperationExecutor {
      * Place your code here
      */
     let ret = {};
-    ret.obj1 = {...{}, ...arg.obj1, ...arg.obj2};
+    ret.obj1 = {...arg.obj1, ...arg.obj2};
     ret.obj1.a = 42;
     ret.obj1.b = 12;
     return {arg, ret} /* variable with result */;
@@ -65,12 +65,8 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    arg.obj1.relatives.map(x => {
-      if (x.lastName === "Ivanova") {
-        x.gender = "female";
-      } else {
-        x.gender = "male";
-      }
+    arg.obj1.relatives.forEach(x => {
+      x.gender = x.lastName === "Ivanova" ? "female" : "male";
     });    
 
     return arg /* variable with result */;
@@ -86,12 +82,9 @@ class OperationExecutor {
     /**
      * Place your code here
      */
-    let ret = [];
-    arg.obj1.relatives.filter((x) => {
-      return x.gender === "female";
-    }).forEach((x) => {
-      ret.push(`Hello, ${x.firstName}!`);
-    });
+    let ret = arg.obj1.relatives.reduce((prev, curr) => {
+      return curr.gender === "female" ? [...prev, `Hello, ${curr.firstName}!`] : [...prev];
+    }, []);
     return ret /* variable with result */;
   }
 }
